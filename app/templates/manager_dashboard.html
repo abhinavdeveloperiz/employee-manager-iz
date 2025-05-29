@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/managerdashboard.css' %}">
+
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4 fw-bold text-primary">📊 Dashboard Overview</h2>
+
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">👥 Total Employees</h5>
+                    <p class="display-6">{{ employee }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm bg-info text-dark">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">📌 Total Leads</h5>
+                    <p class="display-6">{{ total_leads }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm bg-warning text-dark">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">🚧 In-Progress Leads</h5>
+                    <p class="display-6">{{ inprogress }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+            <div class="card border-0 shadow-sm bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">✅ Completed Leads</h5>
+                    <p class="display-6">{{ complete }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+            <div class="card border-0 shadow-sm bg-danger text-white">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">🕓 Pending Leads</h5>
+                    <p class="display-6">{{ pending }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

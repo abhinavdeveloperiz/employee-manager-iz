@@ -1,0 +1,51 @@
+{% extends 'employee_base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-dark">Welcome, <span class="text-primary">{{ employee }}</span></h2>
+    </div>
+
+    <div class="row g-4">
+        <!-- Total Leads -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-white bg-dark shadow-sm h-100 border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Leads</h5>
+                    <h2 class="display-6">{{ total_leads }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Tasks -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-dark bg-warning shadow-sm h-100 border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Not Accepted Tasks</h5>
+                    <h2 class="display-6">{{ pending }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- In Progress Tasks -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-white bg-primary shadow-sm h-100 border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">In Progress</h5>
+                    <h2 class="display-6">{{ inprogress }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completed Tasks -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-white bg-success shadow-sm h-100 border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Completed</h5>
+                    <h2 class="display-6">{{ completed }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

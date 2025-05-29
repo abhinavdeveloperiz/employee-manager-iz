@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary fw-bold mb-4">📋 Assigned Leads</h2>
+
+    <div class="row g-4">
+        {% for lead in leads %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title text-primary fw-semibold"><span class="text-dark">Assigned to:</span> {{ lead.assigned_to }}</h5>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li><strong>Customer :</strong> {{ lead.name|default:"N/A" }}</li>
+                            <li><strong>Email:</strong> {{ lead.email|default:"N/A" }}</li>
+                            <li><strong>Phone:</strong> {{ lead.phone|default:"N/A" }}</li>
+                            <li><strong>Address:</strong> {{ lead.address|default:"N/A" }}</li>
+                            <li><strong>Description:</strong> {{ lead.description }}</li>
+                        </ul>
+
+                        <div class="mb-2">
+                            <strong>Priority:</strong>
+                            <span class="badge 
+                                {% if lead.Priority == 'Hot' %} bg-danger
+                                {% elif lead.Priority == 'Warm' %} bg-warning text-dark
+                                {% else %} bg-secondary {% endif %}">
+                                {{ lead.Priority }}
+                            </span>
+                        </div>
+
+                        <div class="mb-2">
+                            <strong>Status:</strong>
+                            <span class="badge 
+                                {% if lead.status == 'Not Accepted' %} bg-secondary
+                                {% elif lead.status == 'In Progress' %} bg-info text-dark
+                                {% elif lead.status == 'Completed' %} bg-success {% endif %}">
+                                {{ lead.status }}
+                            </span>
+                        </div>
+
+                        <div class="mt-2">
+                            <small><strong>Assigned On:</strong> {{ lead.assigned_on|date:"M d, Y" }}</small><br>
+                            <small><strong>Deadline:</strong> {{ lead.deadline|date:"M d, Y H:i" }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center mt-5">
+            <p class="lead text-muted">No leads found.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
